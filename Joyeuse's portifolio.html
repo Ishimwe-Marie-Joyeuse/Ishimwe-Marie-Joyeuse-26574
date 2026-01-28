@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ishimwe Marie Joyeuse - Portfolio</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 150px 2rem 100px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .description {
+            font-size: 1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 12px 30px;
+            background: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 0.5rem;
+            border: 2px solid #2c3e50;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(44, 62, 80, 0.4);
+            background: #34495e;
+            border-color: #34495e;
+        }
+
+        .btn.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn.secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 2rem;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .skill-card h3 i {
+            font-size: 1.5rem;
+        }
+
+        /* Projects Section */
+        #projects {
+            background: #f8f9fa;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .project-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: color 0.3s;
+        }
+
+        .project-links a:hover {
+            color: #764ba2;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 12px 24px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            border: 2px solid #667eea;
+            transition: all 0.3s;
+        }
+
+        .contact-links a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .contact-links a i {
+            font-size: 1.2rem;
+        }
+
+        /* Education Section */
+        .education-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .education-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .education-card h3 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card h4 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .date {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .education-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .footer-links a:hover {
+            color: #3498db;
+        }
+
+        .footer-links a i {
+            font-size: 1.5rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: #2c3e50;
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .hero .description {
+                font-size: 0.9rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-links a {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+
+            .footer-links {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <h1>Ishimwe Marie Joyeuse</h1>
+            <div class="mobile-menu" onclick="toggleMenu()">☰</div>
+            <ul id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="profile-photo">
+            <img src="C:\Users\HP\Downloads\myprofileimage.jpg" alt="Ishimwe Marie Joyeuse"
+                style="width: 180px; height: 180px; border-radius: 50%; border: 5px solid white; margin-bottom: 1.5rem; object-fit: cover; box-shadow: 0 5px 20px rgba(0,0,0,0.3);">
+        </div>
+        <h2>Hello, I'm Ishimwe Marie Joyeuse</h2>
+        <p class="subtitle">Full-Stack & Mobile Developer | Student | Problem Solver</p>
+        <p class="description">Dedicated Software Engineer passionate about designing and developing secure, scalable,
+            and user-centered systems. My focus spans from backend architecture to mobile applications, driven by a
+            mission to build technology that makes an impact.</p>
+        <a href="mailto:mjoyeuseishimwe@gmail.com" class="btn">
+            <img src="emaillogo.png" alt="Email" style="width: 20px; height: 20px;"> Get In Touch
+        </a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>I'm a passionate software developer currently studying at Adventist University of Central Africa
+                    (AUCA). I love creating innovative solutions and learning new technologies. My goal is to build
+                    applications that make a positive impact on people's lives.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3><i class="fas fa-code"></i> Languages</h3>
+                    <p>Java, JavaScript, Python, PHP, C#</p>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-laptop-code"></i> Frontend Development</h3>
+                    <p>React, Next.js, HTML5, CSS3, Tailwind CSS</p>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-server"></i> Backend Development</h3>
+                    <p>Spring Boot, Node.js, .NET, Python, Java, PHP</p>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-database"></i> Databases</h3>
+                    <p>PostgreSQL, MySQL, SQL Server</p>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-tools"></i> ORMs & Tools</h3>
+                    <p>Hibernate, Entity Framework</p>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-cogs"></i> Development Tools</h3>
+                    <p>Git, GitHub, VS Code, Docker, REST APIs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">💪 Body Insight</div>
+                    <div class="project-content">
+                        <h3>Body Insight - BMI & Health Advisor</h3>
+                        <p>A health management application that calculates Body Mass Index (BMI) and provides
+                            personalized health advice and recommendations based on user data.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Ishimwe-Marie-Joyeuse" target="_blank">
+                                <img src="gitlogo.png" alt="GitHub" style="width: 18px; height: 18px;"> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🏠 Real Estate</div>
+                    <div class="project-content">
+                        <h3>Real Estate Management System</h3>
+                        <p>A comprehensive property management platform for managing real estate listings, tenant
+                            information, rental agreements, and property maintenance tracking.</p>
+                        <div class="project-links">
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🌱 GreenLife</div>
+                    <div class="project-content">
+                        <h3>GreenLife Agriculture Management System</h3>
+                        <p>An agricultural management solution designed to help farmers track crops, manage resources,
+                            monitor harvest cycles, and optimize farming operations.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Ishimwe-Marie-Joyeuse" target="_blank">
+                                <img src="gitlogo.png" alt="GitHub" style="width: 18px; height: 18px;"> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">📚 Study Matcher</div>
+                    <div class="project-content">
+                        <h3>Study Group Matcher System</h3>
+                        <p>A platform that connects students with similar academic interests and learning goals,
+                            facilitating the formation of effective study groups and collaborative learning.</p>
+                        <div class="project-links">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-content">
+                <div class="education-card">
+                    <h3>Engineer's Degree in Computer Software Engineering</h3>
+                    <h4>Adventist University of Central Africa (AUCA) - Rwanda</h4>
+                    <p class="date">Jun 2023 - Dec 2026</p>
+                    <p>Currently in final year, focusing on software development, system design, and emerging
+                        technologies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <p>I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="mailto:mjoyeuseishimwe@gmail.com">
+                    <img src="emaillogo.png" alt="Email" style="width: 24px; height: 24px;"> Email Me
+                </a>
+                <a href="https://github.com/Ishimwe-Marie-Joyeuse" target="_blank">
+                    <img src="gitlogo.png" alt="GitHub" style="width: 24px; height: 24px;"> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/ishimwe-marie-joyeuse-055b84329/" target="_blank">
+                    <img src="linkedinlogo.png" alt="LinkedIn" style="width: 24px; height: 24px;"> LinkedIn
+                </a>
+            </div>
+            <p>&copy; 2026 Ishimwe Marie Joyeuse. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('navMenu').classList.remove('active');
+                }
+            });
+        });
+
+        // Add active class to current nav item on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav ul li a').forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href') === `#${current}`) {
+                    a.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
+});
