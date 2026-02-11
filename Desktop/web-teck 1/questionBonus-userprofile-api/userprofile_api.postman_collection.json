@@ -1,0 +1,307 @@
+{
+    "info": {
+        "_postman_id": "f89f3095-888e-4a64-af6c-d22754641abc",
+        "name": "User Profile API",
+        "description": "Collection for testing the User Profile API (questionBonus-userprofile-api)",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Get All Users",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8084/api/users",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8084",
+                    "path": [
+                        "api",
+                        "users"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get User by ID",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8084/api/users/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8084",
+                    "path": [
+                        "api",
+                        "users",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Search User by Username",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8084/api/users/search/username/john_doe",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8084",
+                    "path": [
+                        "api",
+                        "users",
+                        "search",
+                        "username",
+                        "john_doe"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Users by Country",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8084/api/users/search/country/USA",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8084",
+                    "path": [
+                        "api",
+                        "users",
+                        "search",
+                        "country",
+                        "USA"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Users by Age Range",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8084/api/users/search/age-range?min=20&max=30",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8084",
+                    "path": [
+                        "api",
+                        "users",
+                        "search",
+                        "age-range"
+                    ],
+                    "query": [
+                        {
+                            "key": "min",
+                            "value": "20"
+                        },
+                        {
+                            "key": "max",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Active Users",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8084/api/users/active",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8084",
+                    "path": [
+                        "api",
+                        "users",
+                        "active"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Inactive Users",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8084/api/users/inactive",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8084",
+                    "path": [
+                        "api",
+                        "users",
+                        "inactive"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Create New User",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"username\": \"alice_green\",\n    \"email\": \"alice@example.com\",\n    \"fullName\": \"Alice Green\",\n    \"age\": 24,\n    \"country\": \"UK\",\n    \"bio\": \"New user bio\",\n    \"active\": true\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:8084/api/users",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8084",
+                    "path": [
+                        "api",
+                        "users"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Update User Profile",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"username\": \"john_doe_updated\",\n    \"email\": \"john.updated@example.com\",\n    \"fullName\": \"John Doe Updated\",\n    \"age\": 29,\n    \"country\": \"USA\",\n    \"bio\": \"Updated bio\",\n    \"active\": true\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:8084/api/users/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8084",
+                    "path": [
+                        "api",
+                        "users",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Activate User",
+            "request": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8084/api/users/4/activate",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8084",
+                    "path": [
+                        "api",
+                        "users",
+                        "4",
+                        "activate"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Deactivate User",
+            "request": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8084/api/users/1/deactivate",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8084",
+                    "path": [
+                        "api",
+                        "users",
+                        "1",
+                        "deactivate"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Delete User Profile",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8084/api/users/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8084",
+                    "path": [
+                        "api",
+                        "users",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}
