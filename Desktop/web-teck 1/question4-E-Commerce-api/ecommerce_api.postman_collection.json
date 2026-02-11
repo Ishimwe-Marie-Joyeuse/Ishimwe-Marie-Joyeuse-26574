@@ -1,0 +1,304 @@
+{
+    "info": {
+        "_postman_id": "d12f3095-888e-4a64-af6c-d22754641def",
+        "name": "E-Commerce API",
+        "description": "Collection for testing the E-Commerce API (question4-E-Commerce-api)",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Get All Products",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8080/api/products?page=0&limit=5",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "products"
+                    ],
+                    "query": [
+                        {
+                            "key": "page",
+                            "value": "0"
+                        },
+                        {
+                            "key": "limit",
+                            "value": "5"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Product by ID",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8080/api/products/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "products",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Products by Category",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8080/api/products/category/Electronics",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "products",
+                        "category",
+                        "Electronics"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Products by Brand",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8080/api/products/brand/Apple",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "products",
+                        "brand",
+                        "Apple"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Search Products",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8080/api/products/search?keyword=iPhone",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "products",
+                        "search"
+                    ],
+                    "query": [
+                        {
+                            "key": "keyword",
+                            "value": "iPhone"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Products by Price Range",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8080/api/products/price-range?min=500&max=1500",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "products",
+                        "price-range"
+                    ],
+                    "query": [
+                        {
+                            "key": "min",
+                            "value": "500"
+                        },
+                        {
+                            "key": "max",
+                            "value": "1500"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get In Stock Products",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8080/api/products/in-stock",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "products",
+                        "in-stock"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Add New Product",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"name\": \"Sony WH-1000XM5\",\n    \"description\": \"Industry leading noise canceling headphones\",\n    \"price\": 399.99,\n    \"category\": \"Electronics\",\n    \"stockQuantity\": 50,\n    \"brand\": \"Sony\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:8080/api/products",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "products"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Update Product",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"name\": \"iPhone 15 Pro Max\",\n    \"description\": \"Updated description for iPhone 15 Pro Max\",\n    \"price\": 1099.99,\n    \"category\": \"Electronics\",\n    \"stockQuantity\": 40,\n    \"brand\": \"Apple\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:8080/api/products/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "products",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Update Stock",
+            "request": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8080/api/products/1/stock?quantity=60",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "products",
+                        "1",
+                        "stock"
+                    ],
+                    "query": [
+                        {
+                            "key": "quantity",
+                            "value": "60"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Delete Product",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8080/api/products/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "products",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}
